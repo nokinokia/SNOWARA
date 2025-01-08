@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNOWARA</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: "Sixtyfour", serif;
+            background: linear-gradient(45deg, #646464, #646464);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .crazy-navbar {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(90deg, #000000, #000000);
+            padding: 20px 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .crazy-navbar ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .crazy-navbar li {
+            margin: 0 30px;
+        }
+
+        .crazy-navbar a {
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.3s, transform 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .crazy-navbar a:hover {
+            color: #FFD700;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            background: url('https://giffiles.alphacoders.com/211/211056.gif') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            animation: zoomIn 2s ease-out;
+        }
+
+        .hero-section h1 {
+            font-size: 4em;
+            font-family: "Sixtyfour", serif;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            animation: glowText 2s infinite alternate;
+        }
+
+        .hero-section h2 {
+            font-size: 2.5em;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-out 1s;
+        }
+
+        .hero-section p {
+            font-size: 1.5em;
+            animation: fadeIn 2s ease-out 2s;
+            font-weight: lighter;
+        }
+
+        /* About Section */
+        .about-section {
+            height: 100vh;
+            background: url('https://giffiles.alphacoders.com/211/211056.gif') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            animation: zoomIn 2s ease-out;
+            text-align: center;
+            padding: 50px 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            animation: slideIn 1.5s ease-out;
+        }
+
+        .about-section h2 {
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 0 0 10px #646464, 0 0 20px #646464;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            font-weight: lighter;
+        }
+
+        .copy-section button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .copy-section button:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+        }
+
+        /* Tokenomics Section */
+        .tokenomics {
+            height: 100vh;
+            background: url('https://giffiles.alphacoders.com/211/211056.gif') no-repeat center center/cover;
+            padding: 50px 20px;
+            text-align: center;
+            color: #FFD700;
+            box-shadow: 0 5px 20px 646464(0, 0, 0, 0.4);
+            animation: slideIn 2s ease-out;
+        }
+
+        .tokenomics h2 {
+            font-size: 3em;
+            margin-bottom: 30px;
+        }
+
+        .tokenomics p {
+            font-size: 1.5em;
+            line-height: 1.5;
+            font-weight: lighter;
+        }
+
+        /* Roadmap Section */
+        .roadmap {
+            height: 100vh; 
+            background: url('https://giffiles.alphacoders.com/211/211056.gif') no-repeat center center/cover;
+            text-align: center;
+            padding: 50px 20px;
+            color: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .roadmap h2 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #f1ff6e, 0 0 20px #ff7300;
+        }
+
+        .roadmap ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .roadmap li {
+            font-size: 1.5em;
+            margin: 15px 0;
+            font-weight: lighter;
+        }
+
+        /* Meme Gallery Section */
+        .meme-gallery {
+            text-align: center;
+            padding: 50px 50px;
+            background: url('https://giffiles.alphacoders.com/211/211056.gif') no-repeat center center/cover;
+        }
+
+        .meme-gallery h2 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #fff;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .meme-grid {
+            display: grid;
+            margin-left: 1%;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .meme img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .meme img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Social Section */
+        .social-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: url('https://giffiles.alphacoders.com/211/211056.gif') no-repeat center center/cover;
+            color: white;
+        }
+
+        .social-section h2 {
+            font-size: 3em;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .social-icons a {
+            margin: 0 20px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.3);
+        }
+
+        .social-icons img {
+            width: 60px;
+            height: 60px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #000;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes glowText {
+            0% {
+                text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 15px #FFD700;
+            }
+
+            100% {
+                text-shadow: 0 0 20px #FF00FF, 0 0 30px #FF00FF, 0 0 40px #FF00FF;
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="crazy-navbar">
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#tokenomics">TOKENOMICS</a></li>
+            <li><a href="#roadmap">HOW TO BUY</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section">
+        <h1 class="crazy-title">SNOWARA</h1>
+        <div class="copy-section">
+            <p id="copy-text"><a href="https://x.com/snowaradev"><img
+                src="https://www.freepnglogos.com/uploads/twitter-x-logo-png/twitter-x-logo-png-9.png"
+                width="70px"></a>
+        <a href="https://t.me/snowaradev"><img
+                src="https://logodownload.org/wp-content/uploads/2017/11/telegram-logo-8.png" width="70px"></a>
+        <a href="https://pump.fun/board"><img
+                src="https://static.vecteezy.com/system/resources/previews/021/819/342/non_2x/fun-green-pill-free-png.png"
+                width="70px"></a></p>
+                <img src="img/logo.webp" width="20%">
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <div class="about-section" id="about">
+        <h2>About $SNOWARA</h2>
+        <p>SNOWARA is a name that captures the enchanting beauty and serenity of the winter season.</p>
+        <div class="copy-section">
+            <p id="copy-text">CA: XXXXXXXXXXXXXXXXXXXX</p>
+        </div>
+        </div>
+    </div>
+
+    <!-- Tokenomics Section -->
+    <div class="tokenomics" id="tokenomics">
+        <h2>Tokenomics</h2>
+        <p><strong>TICKER:</strong> $SNOWARA</p>
+        <p><strong>TOTAL SUPPLY:</strong> 1,000,000,000</p>
+        <p><strong>LIQUIDITY POOL BURNED:</strong> 100%</p>
+    </div>
+
+    <!-- Roadmap Section -->
+    <div class="roadmap" id="roadmap">
+        <h2>HOW TO BUY</h2>
+        <ul>
+            <li>Phase 1: Download Phantom Wallet</li>
+            <li>Phase 2: Buy Solana On Your CEX</li>
+            <li>Phase 3: Trade On Pump.fun</li>
+        </ul>
+    </div>
+
+    <!-- Social Section -->
+    <div class="social-section">
+        <h2>Follow Us</h2>
+        <div class="social-icons">
+            <a href="https://x.com/snowaradev"><img
+                    src="https://www.freepnglogos.com/uploads/twitter-x-logo-png/twitter-x-logo-png-9.png"
+                    width="70px"></a>
+            <a href="https://t.me/snowaradev"><img
+                    src="https://logodownload.org/wp-content/uploads/2017/11/telegram-logo-8.png" width="70px"></a>
+            <a href="https://pump.fun/board"><img
+                    src="https://static.vecteezy.com/system/resources/previews/021/819/342/non_2x/fun-green-pill-free-png.png"
+                    width="70px"></a>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SNOWARA</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function copyText() {
+            const text = document.getElementById("copy-text").innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Teks berhasil disalin!");
+            });
+        }
+    </script>
+
+</body>
+
+</html>
